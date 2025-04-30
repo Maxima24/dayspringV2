@@ -25,6 +25,19 @@ model User {
 
 }
 
+
+model Product {
+  id   String   @id @map("_id") @default(uuid())
+  name String
+  description String
+  price Float
+  image String
+  course_outline String
+  quantity Int
+}
+
+
+
 enum Role {
   USER
   ADMIN
