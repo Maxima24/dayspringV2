@@ -1,16 +1,27 @@
 import LandingPage from './ui/CTA/landingPage'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom'
 import AppLayout from './ui/AppLayout'
-import LoginPage from './ui/Auth/loginPage'
-import SignUp from './ui/Auth/SignUp'
-import GuestPage from './ui/Guest/GuestPage'
-import GuestShop from './ui/Guest/GuestShop'
+import LoginForm from './ui/Auth/loginPage'
+import SignUpForm from './ui/Auth/SignUp'
+import GuestCart from './ui/Guest/GuestCart'
+import UserCart from './ui/User/userCart'
 import UserPage from './ui/User/UserPage'
+import {action as signUpAction} from './ui/Auth/SignUp'
 import UserShop from './ui/User/UserShop'
 import AdminPage from './ui/Admin/AdminPage'
 import User from './ui/Auth/User'
 import Home from './ui/home'
-import Shop from './ui/Shop'
+import GuestPage from './ui/Guest/GuestPage'
+import Cart from './ui/cart'
+
+
+// import Shop from './ui/Shop'
+import {action as loginAction} from './ui/Auth/loginPage'
+
+// import { logOutUser } from './feautures/userSlice'
+// import { useEffect } from 'react'
+// import { useDispatch } from 'react-redux'
+// import UserCart from './ui/User/userCart'
 const router =createBrowserRouter([
   {element:<AppLayout/>,children:[
     {
@@ -19,25 +30,27 @@ const router =createBrowserRouter([
     },
     {
       path:"newuser",element:<User/>,children:[
-        {path:"login",element:<LoginPage/>},
-        {path:"signup",element:<SignUp/>},
+        {path:"login",element:<LoginForm/>,action:loginAction},
+        {path:"signup",element:<SignUpForm/>,action:signUpAction},
       ]
     },{
       path:"home",element:<Home/>, children:[
-        {path:"guest/:name", element:<GuestPage/>},
-        {path:"user/:usernameid", element:<UserPage/>},
-        {path:"admin/:adminid",element:<AdminPage/>}
+        {path:"GUEST/:name", element:<GuestPage/>},
+        {path:"USER/:usernameid", element:<UserPage/>},
+        {path:"ADMIN/:adminid",element:<AdminPage/>}
       ]
+      ,
     },
-    {path:"shop",element:<Shop/>,children:[
-      {path:"guest/:name",element:<GuestShop/>},
-      {path:"user:usernameid" , element:<UserShop/>}
+    {path:"cart",element:<Cart/>,children:[
+      {path:"GUEST/:name",element:<GuestCart/>},
+      {path:"USER/:usernameid" , element:<UserCart/>}
     ]}
   ]}
 ])
 
 
 function App() {
+  
   
 
   return <RouterProvider router ={router}/>

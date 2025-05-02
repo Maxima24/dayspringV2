@@ -1,9 +1,13 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import {  Navigate, Outlet,  } from 'react-router-dom'
 
 function Home() {
+  
+  const token = localStorage.getItem("token")
+  if(!token) return <Navigate to="/newuser/login"/>
   return (
     <div>
+
         <Outlet/>
     </div>
   )

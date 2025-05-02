@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 
 function Button({to,onClick,disabled,children,type}) {
     const base = " uppercase font-semibold text-stone-800 inline-block tracking-wide rounded-full hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-400 transition ease-in-out duration-200"

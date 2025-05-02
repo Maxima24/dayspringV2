@@ -30,8 +30,8 @@ function Hero() {
           With understanding being our watchword , learn<br/> to succeed in all
           aspects of academics <br/> and non-Academics affair
         </p>
-        <div className="mt-8 flex  gap-2 items-center">
-        <Button type={"secondary"}>Register now!</Button>
+        <div className="mt-8 flex  gap-2 items-center"> 
+        <Button type={"secondary"} to={"/newuser/signup"}>Register now!</Button>
         <Button type={"secondary"}>Go to shop</Button>
       </div>
      
