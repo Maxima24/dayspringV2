@@ -23,6 +23,7 @@ export const signIn = async (data, res) => {
             role: data.role,
         },
     });
+    
     delete user.password;
 
     // create a token
@@ -52,18 +53,17 @@ export const login = async (data, res) => {
     });
     if (!user) {
         return res.status(400).json({
-            message: "User not found",
+            message: "Invalid Credentials",
         });
     }
     const isPasswordValid = await bcrypt.compare(data.password, user.password);
     if (!isPasswordValid) {
         return res.status(400).json({
-            message: "Invalid password",
+            message: "Invalid Credentials",
         });
     }
     delete user.password;
 
-    // create a token
     const token = jwt.sign(
         {
             id: user._id,
