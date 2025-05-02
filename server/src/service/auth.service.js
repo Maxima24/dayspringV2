@@ -23,9 +23,10 @@ export const signIn = async (data, res) => {
             role: data.role,
         },
     });
-    
-    delete user.password;
 
+    delete user.password;
+    
+    
     // create a token
     const token = jwt.sign(
         {
